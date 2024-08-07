@@ -1,0 +1,23 @@
+<h1>Image Gallery</h1>
+
+<input type="file" id="file-input" accept="image/*" multiple (change)="onFileSelected($event)">
+<div class="grid-wrapper">
+    <div *ngFor="let image of images; let i = index" [ngClass]="image.aspectRatioClass" (click)="openImage(i)">
+        <img [src]="image.src" alt="Gallery Image">
+    </div>
+</div>
+
+<div *ngIf="selectedImageIndex !== null" class="overlay" (click)="closeImage()">
+    <div class="arrow left-arrow" (click)="prevImage(); $event.stopPropagation()">&#10094;</div>
+    <img [src]="selectedImageSrc" class="enlarged-image" alt="Enlarged Image">
+    <div class="arrow right-arrow" (click)="nextImage(); $event.stopPropagation()">&#10095;</div>
+
+    <div class="comment-section" (click)="$event.stopPropagation()">
+        <h3>Comments</h3>
+        <div *ngFor="let comment of images[selectedImageIndex]?.comments">
+            <p>{{ comment }}</p>
+        </div>
+        <textarea [(ngModel)]="newComment" placeholder="Add a comment..."></textarea>
+        <button (click)="addComment()">Enter</button>
+    </div>
+</div>

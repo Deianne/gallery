@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+html, body {
+  background: #fff;
+  padding: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.grid-wrapper > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-wrapper > div > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+}
+
+.grid-wrapper > div.tall {
+  grid-row: span 2;
+}
+
+.grid-wrapper > div.slightly-wide-portrait {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.grid-wrapper > div.nearly-square {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.enlarged-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.comment-section {
+  position: absolute;
+  bottom: 8%;
+  right: 3%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 300px;
+  z-index: 1002;
+  overflow-wrap: break-word; /* Ensures long words break to fit within the container */
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.comment-section h3 {
+  margin-bottom: 10px;
+}
+
+.comment-section textarea {
+  width: 100%;
+  height: 60px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: none;
+  overflow-wrap: break-word; /* Ensures long words break to fit within the textarea */
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.comment-section button {
+  display: inline-block;
+  padding: 10px 15px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
